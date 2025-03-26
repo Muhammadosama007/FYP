@@ -15,7 +15,7 @@ const Breadcrumb = ({ bgColor }) => {
             <span className="text-black text-2xl">{">"}</span>
 
             {/* Dashboard (Static) */}
-            <Link to="/dashboard" className="font-semibold text-xl hover:underline" style={{ color: bgColor }}>
+            <Link to="/" className="font-semibold text-xl hover:underline" style={{ color: bgColor }}>
                 Dashboard
             </Link>
 

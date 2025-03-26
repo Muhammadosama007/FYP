@@ -1,15 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaUser, FaCommentDots, FaCalendarCheck, FaTable, FaChartBar, FaTachometerAlt, FaBell } from "react-icons/fa";
 
 const Sidebar = ({ isSidebarOpen, bgColor }) => {
     const menuItems = [
-        { name: "Dashboard", icon: <FaTachometerAlt /> },
-        { name: "Profile", icon: <FaUser /> },
-        { name: "Feedback", icon: <FaCommentDots /> },
-        { name: "Schedule Meeting", icon: <FaCalendarCheck /> },
-        { name: "Meeting Table", icon: <FaTable /> },
-        { name: "Notifications", icon: <FaBell /> },
-        { name: "Project Progress", icon: <FaChartBar /> },
+        { name: "Dashboard", icon: <FaTachometerAlt />, path: "/" },
+        { name: "Profile", icon: <FaUser />, path: "/profile" },
+        { name: "Feedback", icon: <FaCommentDots />, path: "/feedback" },
+        { name: "Schedule Meeting", icon: <FaCalendarCheck />, path: "/schedule-meeting" },
+        { name: "Meeting Table", icon: <FaTable />, path: "/meeting-table" },
+        { name: "Notifications", icon: <FaBell />, path: "/notifications" },
+        { name: "Project Progress", icon: <FaChartBar />, path: "/project-progress" },
     ];
 
     return (
@@ -24,8 +25,10 @@ const Sidebar = ({ isSidebarOpen, bgColor }) => {
             <ul className="mt-4">
                 {menuItems.map((item, index) => (
                     <li key={index} className="flex items-center space-x-3 p-3 text-gray-700 hover:bg-gray-100 cursor-pointer">
-                        <span className="text-lg" style={{ color: bgColor }}>{item.icon}</span>
-                        <span>{item.name}</span>
+                        <Link to={item.path} className="flex items-center space-x-3 w-full">
+                            <span className="text-lg" style={{ color: bgColor }}>{item.icon}</span>
+                            <span>{item.name}</span>
+                        </Link>
                     </li>
                 ))}
             </ul>
